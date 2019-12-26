@@ -24,8 +24,13 @@ namespace WindowsFormsApp1
 
         private void StudentDueForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show(this.ToString());
             
+            
+        }
+
+        private void StudentDueForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

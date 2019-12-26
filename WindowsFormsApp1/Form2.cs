@@ -93,7 +93,7 @@ namespace WindowsFormsApp1
                     cmd = new MySqlCommand(query, conn);
                     cmd.ExecuteNonQuery();
 
-                    query = "CREATE TABLE journals._"+reg_no+"(journal_title varchar(30), vloume_no varchar(10), issue_no varchar(10));";
+                    query = "CREATE TABLE journals._"+reg_no+"(journal_title varchar(200), vloume_no varchar(10), issue_no varchar(10), given_date varchar(10));";
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Student added");
@@ -110,15 +110,16 @@ namespace WindowsFormsApp1
 
         private void regNoInp_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F4)
+            if (e.KeyCode == Keys.F4)
             {
                 //MessageBox.Show("Sweet");
                 string reg = regNoInp.Text;
-                
+
                 try
                 {
+                    conn = new MySqlConnection(connstring);
                     conn.Open();
-                    string query = "SELECT * FROM journals.students WHERE reg_no='"+reg+"';";
+                    string query = "SELECT * FROM journals.students WHERE reg_no='" + reg + "';";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     int count = 0;
@@ -141,12 +142,18 @@ namespace WindowsFormsApp1
                     }
                     if (count == 0) MessageBox.Show("No such entry");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
 
                 conn.Close();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                surnameInp.Focus();
+                //e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -204,6 +211,145 @@ namespace WindowsFormsApp1
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void surnameInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                fnameInp.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void fnameInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                lnameInp.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void lnameInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                casteInp.Focus();
+                casteInp.DroppedDown = true;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void addStudentForm_Load(object sender, EventArgs e)
+        {
+            //regNoInp.Focus();
+            //MessageBox.Show("Form loded");
+        }
+
+        private void addStudentForm_Activated(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Form activated");
+            regNoInp.Focus();
+        }
+
+        private void casteInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dobInp.Focus();
+                //casteInp.DroppedDown = true;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void dobInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                bloodGroupInp.Focus();
+                bloodGroupInp.DroppedDown = true;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void bloodGroupInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                genderInp.Focus();
+                genderInp.DroppedDown = true;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void genderInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                mobileNoInp.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void mobileNoInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                streamInp.Focus();
+                streamInp.DroppedDown = true;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void streamInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                classInp.Focus();
+                classInp.DroppedDown = true;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void classInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                divisionInp.Focus();
+                divisionInp.DroppedDown = true;
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void divisionInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                rollInp.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void rollInp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addressInp.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

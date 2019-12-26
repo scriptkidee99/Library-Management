@@ -252,10 +252,12 @@
             // 
             // rollInp
             // 
+            this.rollInp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rollInp.Location = new System.Drawing.Point(128, 183);
             this.rollInp.Name = "rollInp";
             this.rollInp.Size = new System.Drawing.Size(139, 27);
             this.rollInp.TabIndex = 7;
+            this.rollInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rollInp_KeyDown);
             // 
             // divisionInp
             // 
@@ -268,10 +270,12 @@
             this.divisionInp.Name = "divisionInp";
             this.divisionInp.Size = new System.Drawing.Size(139, 28);
             this.divisionInp.TabIndex = 6;
+            this.divisionInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.divisionInp_KeyDown);
             // 
             // classInp
             // 
             this.classInp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.classInp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classInp.FormattingEnabled = true;
             this.classInp.Items.AddRange(new object[] {
             "Class1",
@@ -280,6 +284,7 @@
             this.classInp.Name = "classInp";
             this.classInp.Size = new System.Drawing.Size(139, 28);
             this.classInp.TabIndex = 5;
+            this.classInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.classInp_KeyDown);
             // 
             // streamInp
             // 
@@ -297,6 +302,7 @@
             this.streamInp.Name = "streamInp";
             this.streamInp.Size = new System.Drawing.Size(139, 28);
             this.streamInp.TabIndex = 4;
+            this.streamInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.streamInp_KeyDown);
             // 
             // label4
             // 
@@ -382,6 +388,7 @@
             this.mobileNoInp.Name = "mobileNoInp";
             this.mobileNoInp.Size = new System.Drawing.Size(241, 27);
             this.mobileNoInp.TabIndex = 19;
+            this.mobileNoInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mobileNoInp_KeyDown);
             // 
             // genderInp
             // 
@@ -396,6 +403,7 @@
             this.genderInp.Name = "genderInp";
             this.genderInp.Size = new System.Drawing.Size(115, 28);
             this.genderInp.TabIndex = 18;
+            this.genderInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.genderInp_KeyDown);
             // 
             // bloodGroupInp
             // 
@@ -415,6 +423,7 @@
             this.bloodGroupInp.Name = "bloodGroupInp";
             this.bloodGroupInp.Size = new System.Drawing.Size(114, 28);
             this.bloodGroupInp.TabIndex = 17;
+            this.bloodGroupInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bloodGroupInp_KeyDown);
             // 
             // dobInp
             // 
@@ -425,6 +434,7 @@
             this.dobInp.Name = "dobInp";
             this.dobInp.Size = new System.Drawing.Size(114, 22);
             this.dobInp.TabIndex = 16;
+            this.dobInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dobInp_KeyDown);
             // 
             // newCasteInp
             // 
@@ -452,6 +462,7 @@
             this.casteInp.Name = "casteInp";
             this.casteInp.Size = new System.Drawing.Size(190, 28);
             this.casteInp.TabIndex = 14;
+            this.casteInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.casteInp_KeyDown);
             // 
             // surnameInp
             // 
@@ -460,6 +471,7 @@
             this.surnameInp.Name = "surnameInp";
             this.surnameInp.Size = new System.Drawing.Size(241, 27);
             this.surnameInp.TabIndex = 13;
+            this.surnameInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.surnameInp_KeyDown);
             // 
             // fnameInp
             // 
@@ -468,6 +480,7 @@
             this.fnameInp.Name = "fnameInp";
             this.fnameInp.Size = new System.Drawing.Size(241, 27);
             this.fnameInp.TabIndex = 12;
+            this.fnameInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fnameInp_KeyDown);
             // 
             // lnameInp
             // 
@@ -476,6 +489,7 @@
             this.lnameInp.Name = "lnameInp";
             this.lnameInp.Size = new System.Drawing.Size(241, 27);
             this.lnameInp.TabIndex = 11;
+            this.lnameInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lnameInp_KeyDown);
             // 
             // regNoInp
             // 
@@ -601,6 +615,8 @@
             this.Name = "addStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Information";
+            this.Activated += new System.EventHandler(this.addStudentForm_Activated);
+            this.Load += new System.EventHandler(this.addStudentForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

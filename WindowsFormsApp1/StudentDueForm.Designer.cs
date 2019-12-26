@@ -887,6 +887,7 @@
             this.Text = "Student Fine Details";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudentDueForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentDueForm_FormClosed);
+            this.Load += new System.EventHandler(this.StudentDueForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

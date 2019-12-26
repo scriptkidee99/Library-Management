@@ -83,7 +83,7 @@ namespace WindowsFormsApp1
             {
                 dueForm = new StudentDueForm();
                 dueForm.Show();
-                MessageBox.Show(dueForm.ToString());
+                
             }
             else
             {

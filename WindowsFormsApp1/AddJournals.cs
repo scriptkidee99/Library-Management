@@ -28,14 +28,17 @@ namespace WindowsFormsApp1
             string journalName = textBox1.Text;
             string volNo = textBox2.Text;
             string issueNo = textBox6.Text;
+            string monthYear = comboBox1.Text + "-" + comboBox2.Text + " " + dateTimePicker3.Value.ToString("yyyy");
             string rackNo = textBox4.Text;
             string shelfNo = textBox8.Text;
+            string accDate = dateTimePicker1.Value.ToString("dd-MM-yyyy");
+            string receivedDate = dateTimePicker2.Value.ToString("dd-MM-yyyy");
 
             try
             {
                 
                 conn = new MySqlConnection(connstring);
-                string query = "INSERT INTO journals.journal_details(journal_title, volume_no, issue_no, rack_no, shelf_no, no_of_issues) VALUES('" + journalName + "','" + volNo + "','" + issueNo + "','"+rackNo+"','"+shelfNo+"',0);";
+                string query = "INSERT INTO journals.journal_details(journal_title, volume_no, issue_no, month_year, rack_no, shelf_no, acc_date, received_date, no_of_issues) VALUES('" + journalName + "','" + volNo + "','" + issueNo + "','"+monthYear+"','"+rackNo+"','"+shelfNo+"','"+accDate+"','"+receivedDate+"',0);";
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
@@ -143,6 +146,13 @@ namespace WindowsFormsApp1
             }
             
             
+        }
+
+        private void AddJournals_Load(object sender, EventArgs e)
+        {
+            dateTimePicker3.Format = DateTimePickerFormat.Custom;
+            dateTimePicker3.CustomFormat = "yyyy";
+            dateTimePicker3.ShowUpDown = true;
         }
     }
 }
