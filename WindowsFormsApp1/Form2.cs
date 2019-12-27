@@ -93,7 +93,7 @@ namespace WindowsFormsApp1
                     cmd = new MySqlCommand(query, conn);
                     cmd.ExecuteNonQuery();
 
-                    query = "CREATE TABLE journals._"+reg_no+"(journal_title varchar(200), vloume_no varchar(10), issue_no varchar(10), given_date varchar(10));";
+                    query = "CREATE TABLE journals._"+reg_no+"(journal_title varchar(200), vloume_no varchar(10), issue_no varchar(10), given_date varchar(10), return_date varchar(10));";
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Student added");

@@ -81,21 +81,21 @@ namespace WindowsFormsApp1
             try
             {
                 string nogiv = "0";
+                string student = "";
                 conn = new MySqlConnection(connstring);
-                string query = "INSERT INTO journals._"+regNo+"(journal_title, volume_no, issue_no, given_date) VALUES('"+journalTitle+"','"+volNo+"','"+issueNo+"','"+DateTime.Today.ToString("dd-MM-yyyy")+"');";
+                string query = "SELECT student_given FROM journal_";
+                query = "INSERT INTO journals._"+regNo+"(journal_title, volume_no, issue_no, given_date, return_date) VALUES('"+journalTitle+"','"+volNo+"','"+issueNo+"','"+DateTime.Today.ToString("dd-MM-yyyy")+"','null');";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 conn.Open();
                 MessageBox.Show("ExecuteNonQuery returns "+cmd.ExecuteNonQuery().ToString());
-                query = "SELECT no_of_issues FROM journals.journal_details WHERE journal_title='"+journalTitle+"' AND volume_no='"+volNo+"' AND issue_no='"+issueNo+"'";
+                query = "SELECT no_of_issues, student_given FROM journals.journal_details WHERE journal_title='"+journalTitle+"' AND volume_no='"+volNo+"' AND issue_no='"+issueNo+"'";
                 cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     nogiv = reader.GetString(0);
-                    MessageBox.Show("Earlier " + nogiv);
                     nogiv = (Int32.Parse(nogiv)+1).ToString();
-                    MessageBox.Show("Later" + nogiv);
-                    
+                    student = reader.GetString(1);
                 }
                 reader.Close();
                 query = "UPDATE journals.journal_details SET student_given='" + regNo + "', no_of_issues=" + nogiv + " WHERE journal_title='" + journalTitle + "' AND volume_no='" + volNo + "' AND issue_no='" + issueNo + "';";
