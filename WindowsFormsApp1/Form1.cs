@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
             string password;
             do
             {
-                password = Prompt.ShowDialog("Test", "123");
+                password = Prompt.ShowDialog("Login", "Enter password","OK");
                 if (password != "jnec@2019")
                 {
                     MessageBox.Show("Incorrect password!!");
@@ -39,6 +39,7 @@ namespace WindowsFormsApp1
         JournalIssueForm issueform;
         JournalReturnForm returnForm;
         AddJournals addJournalsForm;
+        reportsForm reportsFormGetInfo;
         private void addStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //addStudentForm addNew = new addStudentForm();
@@ -153,33 +154,55 @@ namespace WindowsFormsApp1
                 addJournalsForm.Show();
             }
         }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (reportsFormGetInfo == null)
+            {
+                reportsFormGetInfo = new reportsForm();
+                reportsFormGetInfo.Show();
+            }
+            else
+            {
+                reportsFormGetInfo.Close();
+                reportsFormGetInfo = new reportsForm();
+                reportsFormGetInfo.Show();
+            }
+        }
     }
 
 
 
     public static class Prompt
     {
-        public static string ShowDialog(string text, string caption)
+        public static string ShowDialog(string text, string caption, string btText)
         {
             Form prompt = new Form()
             {
                 Width = 200,
                 Height = 200,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Login",
+                Text = text,
                 StartPosition = FormStartPosition.CenterScreen,
                 ControlBox = false
             };
-            Label textLabel = new Label() { Left = 20, Top = 20, Text = "Enter password" };
+            Label textLabel = new Label() { Left = 20, Top = 20, Text = caption };
             TextBox textBox = new TextBox() { Left = 30, Top = 50, Width = 100 };
-            Button confirmation = new Button() { Text = "Ok", Left = 30, Width = 100, Top = 100, DialogResult = DialogResult.OK };
+            Button cancel = new Button();
+            Button confirmation = new Button() { Text = btText, Left = 30, Width = 100, Top = 100, DialogResult = DialogResult.OK };
             confirmation.Click += (sender, e) => { prompt.Close(); };
             prompt.Controls.Add(textBox);
             prompt.Controls.Add(confirmation);
             prompt.Controls.Add(textLabel);
             prompt.AcceptButton = confirmation;
 
-            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+            //return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+            DialogResult dr = prompt.ShowDialog();
+            if (dr == DialogResult.OK) return textBox.Text;
+            else if (dr == DialogResult.Cancel) return "##null##";
+            else return "";
+            
+
         }
     }
 }

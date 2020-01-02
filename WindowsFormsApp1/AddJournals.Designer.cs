@@ -43,7 +43,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,6 +53,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.newCasteInp = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -201,14 +202,6 @@
             this.textBox6.Size = new System.Drawing.Size(165, 24);
             this.textBox6.TabIndex = 18;
             // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(774, 342);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(165, 24);
-            this.textBox7.TabIndex = 19;
-            // 
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -326,11 +319,33 @@
             this.dateTimePicker3.Size = new System.Drawing.Size(70, 22);
             this.dateTimePicker3.TabIndex = 31;
             // 
+            // newCasteInp
+            // 
+            this.newCasteInp.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.add;
+            this.newCasteInp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.newCasteInp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCasteInp.Location = new System.Drawing.Point(974, 342);
+            this.newCasteInp.Name = "newCasteInp";
+            this.newCasteInp.Size = new System.Drawing.Size(31, 27);
+            this.newCasteInp.TabIndex = 32;
+            this.newCasteInp.UseVisualStyleBackColor = true;
+            this.newCasteInp.Click += new System.EventHandler(this.newCasteInp_Click);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(774, 342);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(165, 24);
+            this.comboBox3.TabIndex = 33;
+            // 
             // AddJournals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 789);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.newCasteInp);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
@@ -341,7 +356,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label9);
@@ -384,7 +398,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -395,5 +408,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Button newCasteInp;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

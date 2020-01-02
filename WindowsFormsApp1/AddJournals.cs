@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
             {
                 
                 conn = new MySqlConnection(connstring);
-                string query = "INSERT INTO journals.journal_details(journal_title, volume_no, issue_no, month_year, rack_no, shelf_no, acc_date, received_date, no_of_issues) VALUES('" + journalName + "','" + volNo + "','" + issueNo + "','"+monthYear+"','"+rackNo+"','"+shelfNo+"','"+accDate+"','"+receivedDate+"',0);";
+                string query = "INSERT INTO journals.journal_details(journal_title, volume_no, issue_no, month_year, rack_no, shelf_no, acc_date, received_date, no_of_issues, student_given) VALUES('" + journalName + "','" + volNo + "','" + issueNo + "','"+monthYear+"','"+rackNo+"','"+shelfNo+"','"+accDate+"','"+receivedDate+"',0,'null');";
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
@@ -153,6 +153,62 @@ namespace WindowsFormsApp1
             dateTimePicker3.Format = DateTimePickerFormat.Custom;
             dateTimePicker3.CustomFormat = "yyyy";
             dateTimePicker3.ShowUpDown = true;
+
+            try
+            {
+                conn = new MySqlConnection(connstring);
+                string query = "SELECT * FROM journals.period";
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read()) comboBox3.Items.Add(reader.GetString(0));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error occured");
+            }
+            finally
+            {
+                if(conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void newCasteInp_Click(object sender, EventArgs e)
+        {
+            string newPeriod = Prompt.ShowDialog("Period", "Enter period", "Add Periocmd.exd");
+            if (!String.IsNullOrWhiteSpace(newPeriod))
+            {
+                try
+                {
+                    conn = new MySqlConnection(connstring);
+                    string query = "INSERT INTO journals.period(period) VALUES('" + newPeriod + "');";
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("New period added");
+                        comboBox3.Items.Add(newPeriod);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error occured");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error occured");
+                }
+                finally
+                {
+                    if(conn.State != ConnectionState.Closed)
+                    {
+                        conn.Close();
+                    }
+                }
+            }
         }
     }
 }

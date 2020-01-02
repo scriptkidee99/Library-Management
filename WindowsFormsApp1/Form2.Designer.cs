@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.import_button = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.modifyBtn = new System.Windows.Forms.Button();
@@ -42,11 +43,9 @@
             this.newClassInp = new System.Windows.Forms.Button();
             this.newStreamInp = new System.Windows.Forms.Button();
             this.rollInp = new System.Windows.Forms.TextBox();
-            this.divisionInp = new System.Windows.Forms.ComboBox();
             this.classInp = new System.Windows.Forms.ComboBox();
             this.streamInp = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -104,6 +103,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.import_button);
             this.panel2.Controls.Add(this.cancelBtn);
             this.panel2.Controls.Add(this.deleteBtn);
             this.panel2.Controls.Add(this.modifyBtn);
@@ -113,10 +113,21 @@
             this.panel2.Size = new System.Drawing.Size(200, 889);
             this.panel2.TabIndex = 1;
             // 
+            // import_button
+            // 
+            this.import_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.import_button.Location = new System.Drawing.Point(23, 245);
+            this.import_button.Name = "import_button";
+            this.import_button.Size = new System.Drawing.Size(152, 49);
+            this.import_button.TabIndex = 4;
+            this.import_button.Text = "Import";
+            this.import_button.UseVisualStyleBackColor = true;
+            this.import_button.Click += new System.EventHandler(this.import_button_Click);
+            // 
             // cancelBtn
             // 
             this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtn.Location = new System.Drawing.Point(23, 351);
+            this.cancelBtn.Location = new System.Drawing.Point(23, 423);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(152, 49);
             this.cancelBtn.TabIndex = 3;
@@ -127,7 +138,7 @@
             // deleteBtn
             // 
             this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteBtn.Location = new System.Drawing.Point(23, 247);
+            this.deleteBtn.Location = new System.Drawing.Point(23, 324);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(152, 49);
             this.deleteBtn.TabIndex = 2;
@@ -138,7 +149,7 @@
             // modifyBtn
             // 
             this.modifyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyBtn.Location = new System.Drawing.Point(23, 154);
+            this.modifyBtn.Location = new System.Drawing.Point(23, 163);
             this.modifyBtn.Name = "modifyBtn";
             this.modifyBtn.Size = new System.Drawing.Size(152, 49);
             this.modifyBtn.TabIndex = 1;
@@ -212,18 +223,16 @@
             this.groupBox2.Controls.Add(this.newClassInp);
             this.groupBox2.Controls.Add(this.newStreamInp);
             this.groupBox2.Controls.Add(this.rollInp);
-            this.groupBox2.Controls.Add(this.divisionInp);
             this.groupBox2.Controls.Add(this.classInp);
             this.groupBox2.Controls.Add(this.streamInp);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox2.Location = new System.Drawing.Point(734, 303);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(337, 228);
+            this.groupBox2.Size = new System.Drawing.Size(337, 204);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Class Details";
@@ -238,6 +247,7 @@
             this.newClassInp.Size = new System.Drawing.Size(31, 27);
             this.newClassInp.TabIndex = 24;
             this.newClassInp.UseVisualStyleBackColor = true;
+            this.newClassInp.Click += new System.EventHandler(this.newClassInp_Click);
             // 
             // newStreamInp
             // 
@@ -249,37 +259,22 @@
             this.newStreamInp.Size = new System.Drawing.Size(31, 27);
             this.newStreamInp.TabIndex = 22;
             this.newStreamInp.UseVisualStyleBackColor = true;
+            this.newStreamInp.Click += new System.EventHandler(this.newStreamInp_Click);
             // 
             // rollInp
             // 
             this.rollInp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollInp.Location = new System.Drawing.Point(128, 183);
+            this.rollInp.Location = new System.Drawing.Point(128, 146);
             this.rollInp.Name = "rollInp";
             this.rollInp.Size = new System.Drawing.Size(139, 27);
             this.rollInp.TabIndex = 7;
             this.rollInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rollInp_KeyDown);
-            // 
-            // divisionInp
-            // 
-            this.divisionInp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.divisionInp.FormattingEnabled = true;
-            this.divisionInp.Items.AddRange(new object[] {
-            "Division 1",
-            "Division 2"});
-            this.divisionInp.Location = new System.Drawing.Point(128, 132);
-            this.divisionInp.Name = "divisionInp";
-            this.divisionInp.Size = new System.Drawing.Size(139, 28);
-            this.divisionInp.TabIndex = 6;
-            this.divisionInp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.divisionInp_KeyDown);
             // 
             // classInp
             // 
             this.classInp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.classInp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classInp.FormattingEnabled = true;
-            this.classInp.Items.AddRange(new object[] {
-            "Class1",
-            "Class2"});
             this.classInp.Location = new System.Drawing.Point(128, 86);
             this.classInp.Name = "classInp";
             this.classInp.Size = new System.Drawing.Size(139, 28);
@@ -291,13 +286,6 @@
             this.streamInp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.streamInp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.streamInp.FormattingEnabled = true;
-            this.streamInp.Items.AddRange(new object[] {
-            "CSE",
-            "ENTC",
-            "IT",
-            "Mechanical",
-            "Chemical",
-            "Civil"});
             this.streamInp.Location = new System.Drawing.Point(128, 42);
             this.streamInp.Name = "streamInp";
             this.streamInp.Size = new System.Drawing.Size(139, 28);
@@ -315,23 +303,12 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Class";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(21, 140);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Division";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(21, 186);
+            this.label2.Location = new System.Drawing.Point(21, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 1;
@@ -446,18 +423,13 @@
             this.newCasteInp.Size = new System.Drawing.Size(31, 27);
             this.newCasteInp.TabIndex = 15;
             this.newCasteInp.UseVisualStyleBackColor = true;
+            this.newCasteInp.Click += new System.EventHandler(this.newCasteInp_Click);
             // 
             // casteInp
             // 
             this.casteInp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.casteInp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.casteInp.FormattingEnabled = true;
-            this.casteInp.Items.AddRange(new object[] {
-            "Open",
-            "OBC",
-            "SB",
-            "SBC",
-            "NT"});
             this.casteInp.Location = new System.Drawing.Point(185, 303);
             this.casteInp.Name = "casteInp";
             this.casteInp.Size = new System.Drawing.Size(190, 28);
@@ -662,11 +634,9 @@
         private System.Windows.Forms.Button newClassInp;
         private System.Windows.Forms.Button newStreamInp;
         private System.Windows.Forms.TextBox rollInp;
-        private System.Windows.Forms.ComboBox divisionInp;
         private System.Windows.Forms.ComboBox classInp;
         private System.Windows.Forms.ComboBox streamInp;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -676,5 +646,6 @@
         private System.Windows.Forms.ComboBox genderInp;
         private System.Windows.Forms.ComboBox bloodGroupInp;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button import_button;
     }
 }

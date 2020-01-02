@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -49,7 +50,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -58,6 +58,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.srno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issueno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.journaltitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issuedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -225,11 +232,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.textBox9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.textBox8);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(13, 368);
@@ -241,7 +248,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(777, 36);
+            this.textBox9.Location = new System.Drawing.Point(916, 39);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(178, 28);
             this.textBox9.TabIndex = 5;
@@ -250,7 +257,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(663, 37);
+            this.label10.Location = new System.Drawing.Point(796, 45);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 18);
             this.label10.TabIndex = 4;
@@ -258,7 +265,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(451, 31);
+            this.textBox8.Location = new System.Drawing.Point(592, 45);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(173, 28);
             this.textBox8.TabIndex = 3;
@@ -267,18 +274,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(363, 37);
+            this.label9.Location = new System.Drawing.Point(503, 49);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 18);
             this.label9.TabIndex = 2;
             this.label9.Text = "Vol No";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(123, 31);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(189, 28);
-            this.textBox7.TabIndex = 1;
             // 
             // label8
             // 
@@ -292,13 +292,34 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.srno,
+            this.volno,
+            this.issueno,
+            this.journaltitle,
+            this.issuedate,
+            this.returndate});
             this.dataGridView1.Location = new System.Drawing.Point(13, 504);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 25;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1122, 159);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox3
             // 
@@ -352,6 +373,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Modify";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -362,6 +384,62 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(123, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(318, 30);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // srno
+            // 
+            this.srno.DataPropertyName = "srno";
+            this.srno.HeaderText = "Sr No";
+            this.srno.MinimumWidth = 6;
+            this.srno.Name = "srno";
+            this.srno.ReadOnly = true;
+            // 
+            // volno
+            // 
+            this.volno.DataPropertyName = "volno";
+            this.volno.HeaderText = "Volume No";
+            this.volno.MinimumWidth = 6;
+            this.volno.Name = "volno";
+            this.volno.ReadOnly = true;
+            // 
+            // issueno
+            // 
+            this.issueno.DataPropertyName = "issueno";
+            this.issueno.HeaderText = "Issue No";
+            this.issueno.MinimumWidth = 6;
+            this.issueno.Name = "issueno";
+            this.issueno.ReadOnly = true;
+            // 
+            // journaltitle
+            // 
+            this.journaltitle.DataPropertyName = "journaltitle";
+            this.journaltitle.HeaderText = "Journal Title";
+            this.journaltitle.MinimumWidth = 6;
+            this.journaltitle.Name = "journaltitle";
+            this.journaltitle.ReadOnly = true;
+            // 
+            // issuedate
+            // 
+            this.issuedate.DataPropertyName = "issuedate";
+            this.issuedate.HeaderText = "Issue Date";
+            this.issuedate.MinimumWidth = 6;
+            this.issuedate.Name = "issuedate";
+            this.issuedate.ReadOnly = true;
+            // 
+            // returndate
+            // 
+            this.returndate.DataPropertyName = "returndate";
+            this.returndate.HeaderText = "Return Date";
+            this.returndate.MinimumWidth = 6;
+            this.returndate.Name = "returndate";
+            this.returndate.ReadOnly = true;
             // 
             // JournalIssueForm
             // 
@@ -417,7 +495,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -426,5 +503,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn srno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issueno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn journaltitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issuedate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returndate;
     }
 }

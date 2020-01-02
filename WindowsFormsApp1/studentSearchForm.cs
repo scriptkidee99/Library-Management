@@ -25,30 +25,355 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string text = comboBox1.Text;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Reg No");
+            dt.Columns.Add("First Name");
+            dt.Columns.Add("Last Name");
+            dt.Columns.Add("Surname");
+            dt.Columns.Add("Caste");
+            dt.Columns.Add("Date of Birth");
+            dt.Columns.Add("Blood Group");
+            dt.Columns.Add("Gender");
+            dt.Columns.Add("Mobile No");
+            dt.Columns.Add("Stream");
+            dt.Columns.Add("_class");
+            dt.Columns.Add("Roll No");
+            string field = comboBox1.Text;
+            string gotquery = textBox1.Text.ToLower();
             try
             {
                 conn = new MySqlConnection(connstring);
-                MySqlDataAdapter adapter;
+                string query = "SELECT * FROM journals.students;";
                 conn.Open();
-                if (text == "")
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (gotquery == "")
                 {
-                     adapter = new MySqlDataAdapter("SELECT * FROM journals.students", conn);
+                    while (reader.Read())
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr["Reg No"] = reader.GetString(0);
+                        dr["First Name"] = reader.GetString(1);
+                        dr["Last Name"] = reader.GetString(2);
+                        dr["Surname"] = reader.GetString(3);
+                        dr["Caste"] = reader.GetString(4);
+                        dr["Date of Birth"] = reader.GetString(5);
+                        dr["Blood Group"] = reader.GetString(6);
+                        dr["Gender"] = reader.GetString(7);
+                        dr["Mobile No"] = reader.GetString(8);
+                        dr["Stream"] = reader.GetString(9);
+                        dr["_class"] = reader.GetString(10);
+                        dr["Roll No"] = reader.GetString(11);
+                        dt.Rows.Add(dr);
+                    }
+                    reader.Close();
                 }
-                else
+                else if (field == "First Name")
                 {
-                     adapter = new MySqlDataAdapter("SELECT * FROM journals.students WHERE first_name='"+text+"'", conn);
+                    
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(1).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
                 }
-                DataTable dtb1 = new DataTable();
-                adapter.Fill(dtb1);
-                dgv1.DataSource = dtb1;
+                else if (field == "Last Name")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(2).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+                else if (field == "Surname")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(3).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+
+                else if (field == "Caste")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(4).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+
+                else if(field=="Date of Birth")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(5).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+
+                else if(field=="Blood Group")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(6).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+                else if (field == "Gender")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(7).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+
+                else if(field=="Mobile No")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(8).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+                else if (field == "Stream")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(9).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+                else if (field == "Class")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(10).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+                else if(field=="Roll No")
+                {
+                    while (reader.Read())
+                    {
+                        string checkString = reader.GetString(11).ToLower();
+                        if (checkString.Contains(gotquery))
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["Reg No"] = reader.GetString(0);
+                            dr["First Name"] = reader.GetString(1);
+                            dr["Last Name"] = reader.GetString(2);
+                            dr["Surname"] = reader.GetString(3);
+                            dr["Caste"] = reader.GetString(4);
+                            dr["Date of Birth"] = reader.GetString(5);
+                            dr["Blood Group"] = reader.GetString(6);
+                            dr["Gender"] = reader.GetString(7);
+                            dr["Mobile No"] = reader.GetString(8);
+                            dr["Stream"] = reader.GetString(9);
+                            dr["_class"] = reader.GetString(10);
+                            dr["Roll No"] = reader.GetString(11);
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                    reader.Close();
+                }
+
+
                 conn.Close();
+                dgv1.DataSource = dt;
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed) conn.Close();
+            }
+            
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentSearchForm_Load(object sender, EventArgs e)
+        {
+            comboBox1.Text = "First Name";
         }
     }
 }

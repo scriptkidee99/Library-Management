@@ -25,3 +25,5 @@ C:\Users\ashvi\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Renci.Ss
 C:\Users\ashvi\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MySql.Data.xml
 C:\Users\ashvi\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\ashvi\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.JournalReturnForm.resources
+C:\Users\ashvi\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.reportsForm.resources
+C:\Users\ashvi\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ExcelLibrary.dll
