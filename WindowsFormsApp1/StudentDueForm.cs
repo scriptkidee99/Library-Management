@@ -42,6 +42,18 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            showDue();
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F4) showDue();
+        }
+
+
+        private void showDue()
+        {
             try
             {
                 string regNo = textBox2.Text;
@@ -59,7 +71,7 @@ namespace WindowsFormsApp1
                         textBox4.Text = reader.GetString(4);
                     }
                     reader.Close();
-                    query = "SELECT * FROM journals._"+regNo+" WHERE return_date='null';";
+                    query = "SELECT * FROM journals._" + regNo + " WHERE return_date='null';";
                     cmd.CommandText = query;
                     reader = cmd.ExecuteReader();
                     int count = 1;
@@ -97,12 +109,11 @@ namespace WindowsFormsApp1
             }
             finally
             {
-                if(conn.State != ConnectionState.Closed)
+                if (conn.State != ConnectionState.Closed)
                 {
                     conn.Close();
                 }
             }
-            
         }
     }
 }

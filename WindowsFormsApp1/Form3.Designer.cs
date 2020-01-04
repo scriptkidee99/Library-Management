@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -46,25 +44,25 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.srno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issueno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.journaltitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -95,8 +93,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBox4);
@@ -115,23 +111,6 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Details";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(791, 163);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(152, 28);
-            this.textBox6.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(652, 163);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 18);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Division";
             // 
             // textBox5
             // 
@@ -246,6 +225,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Journal Details";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(123, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(318, 30);
+            this.comboBox1.TabIndex = 6;
+            // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(916, 39);
@@ -295,14 +282,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.srno,
@@ -320,6 +307,54 @@
             this.dataGridView1.Size = new System.Drawing.Size(1122, 159);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // srno
+            // 
+            this.srno.DataPropertyName = "srno";
+            this.srno.HeaderText = "Sr No";
+            this.srno.MinimumWidth = 6;
+            this.srno.Name = "srno";
+            this.srno.ReadOnly = true;
+            // 
+            // volno
+            // 
+            this.volno.DataPropertyName = "volno";
+            this.volno.HeaderText = "Volume No";
+            this.volno.MinimumWidth = 6;
+            this.volno.Name = "volno";
+            this.volno.ReadOnly = true;
+            // 
+            // issueno
+            // 
+            this.issueno.DataPropertyName = "issueno";
+            this.issueno.HeaderText = "Issue No";
+            this.issueno.MinimumWidth = 6;
+            this.issueno.Name = "issueno";
+            this.issueno.ReadOnly = true;
+            // 
+            // journaltitle
+            // 
+            this.journaltitle.DataPropertyName = "journaltitle";
+            this.journaltitle.HeaderText = "Journal Title";
+            this.journaltitle.MinimumWidth = 6;
+            this.journaltitle.Name = "journaltitle";
+            this.journaltitle.ReadOnly = true;
+            // 
+            // issuedate
+            // 
+            this.issuedate.DataPropertyName = "issuedate";
+            this.issuedate.HeaderText = "Issue Date";
+            this.issuedate.MinimumWidth = 6;
+            this.issuedate.Name = "issuedate";
+            this.issuedate.ReadOnly = true;
+            // 
+            // returndate
+            // 
+            this.returndate.DataPropertyName = "returndate";
+            this.returndate.HeaderText = "Return Date";
+            this.returndate.MinimumWidth = 6;
+            this.returndate.Name = "returndate";
+            this.returndate.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -385,62 +420,6 @@
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(318, 30);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // srno
-            // 
-            this.srno.DataPropertyName = "srno";
-            this.srno.HeaderText = "Sr No";
-            this.srno.MinimumWidth = 6;
-            this.srno.Name = "srno";
-            this.srno.ReadOnly = true;
-            // 
-            // volno
-            // 
-            this.volno.DataPropertyName = "volno";
-            this.volno.HeaderText = "Volume No";
-            this.volno.MinimumWidth = 6;
-            this.volno.Name = "volno";
-            this.volno.ReadOnly = true;
-            // 
-            // issueno
-            // 
-            this.issueno.DataPropertyName = "issueno";
-            this.issueno.HeaderText = "Issue No";
-            this.issueno.MinimumWidth = 6;
-            this.issueno.Name = "issueno";
-            this.issueno.ReadOnly = true;
-            // 
-            // journaltitle
-            // 
-            this.journaltitle.DataPropertyName = "journaltitle";
-            this.journaltitle.HeaderText = "Journal Title";
-            this.journaltitle.MinimumWidth = 6;
-            this.journaltitle.Name = "journaltitle";
-            this.journaltitle.ReadOnly = true;
-            // 
-            // issuedate
-            // 
-            this.issuedate.DataPropertyName = "issuedate";
-            this.issuedate.HeaderText = "Issue Date";
-            this.issuedate.MinimumWidth = 6;
-            this.issuedate.Name = "issuedate";
-            this.issuedate.ReadOnly = true;
-            // 
-            // returndate
-            // 
-            this.returndate.DataPropertyName = "returndate";
-            this.returndate.HeaderText = "Return Date";
-            this.returndate.MinimumWidth = 6;
-            this.returndate.Name = "returndate";
-            this.returndate.ReadOnly = true;
-            // 
             // JournalIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -481,8 +460,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox4;

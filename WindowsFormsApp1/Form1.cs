@@ -169,6 +169,11 @@ namespace WindowsFormsApp1
                 reportsFormGetInfo.Show();
             }
         }
+
+        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hi Mihir");
+        }
     }
 
 

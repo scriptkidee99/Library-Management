@@ -30,25 +30,74 @@ namespace WindowsFormsApp1
 
         private void JournalReturnForm_Load(object sender, EventArgs e)
         {
-            conn = new MySqlConnection(connstring);
-            string query = "SELECT journal_title FROM journals.journal_details;";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                comboBox1.Items.Add(reader.GetString(0));
+                int issuecount = 0, returncount = 0;
+                string allStudents = "";
+                conn = new MySqlConnection(connstring);
+                string query = "SELECT journal_title FROM journals.journal_details;";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader.GetString(0));
+                }
+                reader.Close();
+                query = "SELECT reg_no,first_name, last_name, surname, class FROM journals.students;";
+                MySqlCommand cmd1 = new MySqlCommand(query, conn);
+                MySqlDataReader reader1 = cmd1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    allStudents += (reader1.GetString(0) + "~");
+                }
+                reader1.Close();
+                string[] studentList = allStudents.Split('~');
+                /*for (int i=0;i<studentList.Count()-1;i++)
+                {
+                    MessageBox.Show("Student is"+studentList[i]);
+                }*/
+                for (int i = 0; i < studentList.Count() - 1; i++)
+                {
+                    //MessageBox.Show(studentList[i]);
+                    query = "SELECT * FROM journals._" + studentList[i] + " WHERE given_date='" + DateTime.Today.ToString("dd-MM-yyyy") + "';";
+                    //MessageBox.Show(query);
+                    MySqlCommand cmd2 = new MySqlCommand(query, conn);
+                    MySqlDataReader reader2 = cmd2.ExecuteReader();
+                    while (reader2.Read())
+                    {
+                        issuecount++;
+                    }
+                    reader2.Close();
+                    query = "SELECT * FROM journals._" + studentList[i] + " WHERE return_date='" + DateTime.Today.ToString("dd-MM-yyyy") + "';";
+                    MySqlCommand cmd3 = new MySqlCommand(query, conn);
+                    MySqlDataReader reader3 = cmd3.ExecuteReader();
+                    while (reader3.Read()) returncount++;
+                    reader3.Close();
+                }
+                label11.Text = "Journals Issued : " + issuecount.ToString();
+                label12.Text = "Journals Returned : " + returncount.ToString();
+                conn.Close();
             }
-            reader.Close();
-            conn.Close();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed) conn.Close();
+            }
+            
+            
         }
 
-        public void searchAndFillData()
+        public string searchAndFillData(bool fill)
         {
             journalTitle = comboBox1.Text;
             volNo = textBox8.Text;
             issueNo = textBox9.Text;
             student = "";
+            string retstudent = "";
             try
             {
                 conn = new MySqlConnection(connstring);
@@ -72,12 +121,17 @@ namespace WindowsFormsApp1
 
                         while (reader.Read())
                         {
-                            textBox1.Text = reader["reg_no"].ToString();
-                            textBox2.Text = reader["roll_no"].ToString();
-                            textBox3.Text = reader["first_name"].ToString() + " " + reader["last_name"].ToString() + " " + reader["surname"].ToString();
-                            textBox4.Text = reader["stream"].ToString();
-                            textBox5.Text = reader["class"].ToString();
-                            textBox6.Text = reader["division"].ToString();
+                            retstudent = reader["reg_no"].ToString();
+                            if (fill)
+                            {
+                                textBox1.Text = reader["reg_no"].ToString();
+                                textBox2.Text = reader["roll_no"].ToString();
+                                textBox3.Text = reader["first_name"].ToString() + " " + reader["last_name"].ToString() + " " + reader["surname"].ToString();
+                                textBox4.Text = reader["stream"].ToString();
+                                textBox5.Text = reader["class"].ToString();
+                            }
+                            
+                            
                         }
                         reader.Close();
                     }
@@ -88,6 +142,8 @@ namespace WindowsFormsApp1
                 }
                        
                 conn.Close();
+
+                
             }
             catch(Exception ex)
             {
@@ -99,7 +155,7 @@ namespace WindowsFormsApp1
                 conn.Close();
             }
 
-
+            return retstudent;
             
         }
 
@@ -107,7 +163,7 @@ namespace WindowsFormsApp1
         {
             if(e.KeyCode == Keys.F4)
             {
-                searchAndFillData();
+                searchAndFillData(true);
             }
         }
 
@@ -115,7 +171,7 @@ namespace WindowsFormsApp1
         {
             if (e.KeyCode == Keys.F4)
             {
-                searchAndFillData();
+                searchAndFillData(true);
             }
         }
 
@@ -123,7 +179,7 @@ namespace WindowsFormsApp1
         {
             if (e.KeyCode == Keys.F4)
             {
-                searchAndFillData();
+                searchAndFillData(true);
             }
         }
 
@@ -133,7 +189,7 @@ namespace WindowsFormsApp1
             {
 
                 conn = new MySqlConnection(connstring);
-                string query = "UPDATE journals._" + student + " SET return_date='" + DateTime.Today.ToString("dd-MM-yyyy") + "' WHERE journal_title='" + journalTitle + "' AND volume_no='" + volNo + "' AND issue_no='" + issueNo + "' AND return_date='null';";
+                string query = "UPDATE journals._" + searchAndFillData(false) + " SET return_date='" + DateTime.Today.ToString("dd-MM-yyyy") + "' WHERE journal_title='" + journalTitle + "' AND volume_no='" + volNo + "' AND issue_no='" + issueNo + "' AND return_date='null';";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 conn.Open();
                 if (cmd.ExecuteNonQuery() == 1)
@@ -143,6 +199,8 @@ namespace WindowsFormsApp1
                     if (cmd.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Journal Returned");
+                        //searchAndFillData(true);
+                        label12.Text = label12.Text.ToString().Split(':')[0] + (Int32.Parse(label12.Text.ToString().Split(':')[1]) + 1).ToString();
                     }
                     else
                     {
@@ -182,7 +240,7 @@ namespace WindowsFormsApp1
 
 
                 conn.Open();
-                string query = "SELECT volume_no, issue_no, journal_title, given_date, return_date FROM journals._" + student + ";";
+                string query = "SELECT volume_no, issue_no, journal_title, given_date, return_date FROM journals._" + searchAndFillData(false) + ";";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 int count = 1;
