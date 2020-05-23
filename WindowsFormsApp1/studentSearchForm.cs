@@ -354,9 +354,9 @@ namespace WindowsFormsApp1
                 dgv1.DataSource = dt;
 
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {

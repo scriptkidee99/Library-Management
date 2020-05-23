@@ -79,9 +79,9 @@ namespace WindowsFormsApp1
                 label12.Text = "Journals Returned : " + returncount.ToString();
                 conn.Close();
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {
@@ -145,9 +145,9 @@ namespace WindowsFormsApp1
 
                 
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {
@@ -212,9 +212,9 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Error occured");
                 }
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {
@@ -228,6 +228,7 @@ namespace WindowsFormsApp1
 
             try
             {
+                //conn.Open();
                 DataTable dt = new DataTable();
                 DataRow dr;
                 dt.Columns.Add("Sr No");
@@ -240,7 +241,7 @@ namespace WindowsFormsApp1
 
 
                 conn.Open();
-                string query = "SELECT volume_no, issue_no, journal_title, given_date, return_date FROM journals._" + searchAndFillData(false) + ";";
+                string query = "SELECT volume_no, issue_no, journal_title, given_date, return_date FROM journals._" + textBox1.Text + ";";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 int count = 1;
@@ -267,11 +268,11 @@ namespace WindowsFormsApp1
                 reader.Close();
                 conn.Close();
             }
-            catch (Exception ex)
+            catch 
             {
 
                 MessageBox.Show("Error occured");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {

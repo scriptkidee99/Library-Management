@@ -103,9 +103,9 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Incorrect student details");
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {

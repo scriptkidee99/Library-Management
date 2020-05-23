@@ -55,6 +55,7 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.newCasteInp = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -224,7 +225,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(499, 634);
+            this.button2.Location = new System.Drawing.Point(468, 634);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 37);
             this.button2.TabIndex = 23;
@@ -235,7 +236,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(691, 634);
+            this.button3.Location = new System.Drawing.Point(800, 634);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 37);
             this.button3.TabIndex = 24;
@@ -339,11 +340,23 @@
             this.comboBox3.Size = new System.Drawing.Size(165, 24);
             this.comboBox3.TabIndex = 33;
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(646, 634);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(108, 37);
+            this.button4.TabIndex = 34;
+            this.button4.Text = "Import";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AddJournals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 789);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.newCasteInp);
             this.Controls.Add(this.dateTimePicker3);
@@ -410,5 +423,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Button newCasteInp;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button button4;
     }
 }

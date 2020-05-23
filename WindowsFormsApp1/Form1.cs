@@ -24,11 +24,11 @@ namespace WindowsFormsApp1
             do
             {
                 password = Prompt.ShowDialog("Login", "Enter password","OK");
-                if (password != "jnec@2019")
+                if (password != "mgm@2020")
                 {
                     MessageBox.Show("Incorrect password!!");
                 }
-            } while (password != "jnec@2019");
+            } while (password != "mgm@2020");
             
 
         }

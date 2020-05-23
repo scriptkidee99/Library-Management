@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
             lname = lnameInp.Text;
             surname = surnameInp.Text;
             caste = casteInp.Text;
-            dob = dobInp.Value.ToString("yyyy-MM-dd");
+            dob = dobInp.Value.ToString("dd-MM-yyyy");
             bloodGroup = bloodGroupInp.Text;
             gender = genderInp.Text;
             mobNo = mobileNoInp.Text;
@@ -103,9 +103,9 @@ namespace WindowsFormsApp1
                 }
                 conn.Close();
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
 
         }
@@ -138,15 +138,15 @@ namespace WindowsFormsApp1
                         streamInp.Text = reader.GetValue(9).ToString();
                         classInp.Text = reader.GetValue(10).ToString();
                         //divisionInp.Text = reader.GetValue(11).ToString();
-                        rollInp.Text = reader.GetValue(12).ToString();
-                        addressInp.Text = reader.GetValue(13).ToString();
+                        rollInp.Text = reader.GetValue(11).ToString();
+                        addressInp.Text = reader.GetValue(12).ToString();
                         count++;
                     }
                     if (count == 0) MessageBox.Show("No such entry");
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Error occured");
                 }
 
                 conn.Close();
@@ -170,9 +170,9 @@ namespace WindowsFormsApp1
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Student entry updated");
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             conn.Close();
         }
@@ -192,19 +192,20 @@ namespace WindowsFormsApp1
                 int result = cmd.ExecuteNonQuery();
                 if(result != 0)
                 {
-                    MessageBox.Show("Entry deleted");
                     query = "DROP TABLE journals._"+reg+";";
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Student deleted");
+                    
                 }
                 else
                 {
                     MessageBox.Show("Error occured. Entry not deleted");
                 }
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
 
             conn.Close();
@@ -269,9 +270,9 @@ namespace WindowsFormsApp1
                 reader.Close();
                 conn.Close();
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {
@@ -394,7 +395,7 @@ namespace WindowsFormsApp1
                     }
                     conn.Close();
                 }
-                catch(Exception ex)
+                catch
                 {
                     MessageBox.Show("Error occured");
                 }
@@ -441,9 +442,9 @@ namespace WindowsFormsApp1
                         string mobileNo = (ws.Cells[i, 10].Value2 != null) ? ws.Cells[i, 10].Value2.ToString() : "";
                         string stream = (ws.Cells[i, 11].Value2 != null) ? ws.Cells[i, 11].Value2.ToString() : "";
                         string _class = (ws.Cells[i, 12].Value2 != null) ? ws.Cells[i, 12].Value2.ToString() : "";
-                        string division = (ws.Cells[i, 13].Value2 != null) ? ws.Cells[i, 13].Value2.ToString() : "";
-                        string rollNo = (ws.Cells[i, 14].Value2 != null) ? ws.Cells[i, 14].Value2.ToString() : "";
-                        string address = (ws.Cells[i, 15].Value2 != null) ? ws.Cells[i, 15].Value2.ToString() : "";
+                        //string division = (ws.Cells[i, 13].Value2 != null) ? ws.Cells[i, 13].Value2.ToString() : "";
+                        string rollNo = (ws.Cells[i, 13].Value2 != null) ? ws.Cells[i, 13].Value2.ToString() : "";
+                        string address = (ws.Cells[i, 14].Value2 != null) ? ws.Cells[i, 14].Value2.ToString() : "";
                         //MessageBox.Show(firstName + " " + lastName + " " + surName);
 
 
@@ -469,28 +470,28 @@ namespace WindowsFormsApp1
 
                             if (notFound)
                             {
-                                query = "INSERT INTO journals.students(reg_no,first_name,last_name,surname,caste,date_of_birth,blood_group,gender,mobile_no,stream,class,division,roll_no,address) VALUES('" + regNo + "','" + firstName + "','" + lastName + "','" + surName + "','" + caste + "','" + dob + "','" + bg + "','" + gender + "','" + mobileNo + "','" + stream + "','" + _class + "','" + division + "','" + rollNo + "','" + address + "');";
+                                query = "INSERT INTO journals.students(reg_no,first_name,last_name,surname,caste,date_of_birth,blood_group,gender,mobile_no,stream,class,roll_no,address) VALUES('" + regNo + "','" + firstName + "','" + lastName + "','" + surName + "','" + caste + "','" + dob + "','" + bg + "','" + gender + "','" + mobileNo + "','" + stream + "','" + _class + "','" + rollNo + "','" + address + "');";
                                 //MessageBox.Show(query);
                                 cmd = new MySqlCommand(query, conn);
-                                if (cmd.ExecuteNonQuery() == 1)
-                                {
-                                    query = "CREATE TABLE journals._" + regNo + "(journal_title varchar(200), vloume_no varchar(10), issue_no varchar(10), given_date varchar(10), return_date varchar(10));";
-                                    cmd.CommandText = query;
-                                    //MessageBox.Show("Student added");
-                                }
-                                else
-                                {
-                                    working = false;
-                                }
+                                cmd.ExecuteNonQuery();
+                                query = "CREATE TABLE journals._" + regNo + "(journal_title varchar(200), volume_no varchar(10), issue_no varchar(10), given_date varchar(10), return_date varchar(10));";
+                                cmd.CommandText = query;
+                                cmd.ExecuteNonQuery();
+                                //MessageBox.Show("Student added");
+                            }
+                            else
+                            {
+                                working = false;
+                            }
 
                                 
 
-                            }
+                            
                             conn.Close();
                         }
-                        catch (Exception ex)
+                        catch 
                         {
-                            MessageBox.Show(ex.ToString());
+                            MessageBox.Show("Error occured");
                         }
 
                     }
@@ -532,7 +533,7 @@ namespace WindowsFormsApp1
                     else MessageBox.Show("Error occured");
                     conn.Close();
                 }
-                catch(Exception ex)
+                catch
                 {
                     MessageBox.Show("Error occured");
                 }
@@ -565,7 +566,7 @@ namespace WindowsFormsApp1
                     }
                     conn.Close();
                 }
-                catch(Exception ex)
+                catch
                 {
                     MessageBox.Show("Error occured");
                 }

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "Windows
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{F0E8C132-F003-47F5-87AD-13FFEC725AA8}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup2", "Setup2\Setup2.vdproj", "{3CE1D0AD-42C8-4C18-924A-AD8929E65BE9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Library Setup", "Library Setup\Library Setup.vdproj", "{B0F0F0F1-E043-45E2-988D-CE69EAE1FBC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,15 +23,15 @@ Global
 		{817EAEC0-7268-4494-A80E-592825DD7665}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F0E8C132-F003-47F5-87AD-13FFEC725AA8}.Debug|Any CPU.ActiveCfg = Debug
 		{F0E8C132-F003-47F5-87AD-13FFEC725AA8}.Release|Any CPU.ActiveCfg = Release
+		{3CE1D0AD-42C8-4C18-924A-AD8929E65BE9}.Debug|Any CPU.ActiveCfg = Debug
+		{3CE1D0AD-42C8-4C18-924A-AD8929E65BE9}.Release|Any CPU.ActiveCfg = Release
+		{B0F0F0F1-E043-45E2-988D-CE69EAE1FBC2}.Debug|Any CPU.ActiveCfg = Debug
+		{B0F0F0F1-E043-45E2-988D-CE69EAE1FBC2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9D1A6C5-9E7A-4839-B4F9-C4BC7A4B0436}
-	EndGlobalSection
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal

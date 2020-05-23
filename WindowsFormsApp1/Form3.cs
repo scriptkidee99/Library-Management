@@ -56,9 +56,9 @@ namespace WindowsFormsApp1
                     conn.Close();
 
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Error occured");
 
                 }
                 finally
@@ -110,11 +110,11 @@ namespace WindowsFormsApp1
                     reader.Close();
                     conn.Close();
                 }
-                catch (Exception ex)
+                catch 
                 {
 
                     MessageBox.Show("Error occured");
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Error occured");
                 }
                 finally
                 {
@@ -179,9 +179,9 @@ namespace WindowsFormsApp1
                 label12.Text = "Journals Returned : " + returncount.ToString();
                 conn.Close();
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally{
                 if (conn.State != ConnectionState.Closed) conn.Close();
@@ -273,9 +273,9 @@ namespace WindowsFormsApp1
             }
 
         
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error occured");
             }
             finally
             {
